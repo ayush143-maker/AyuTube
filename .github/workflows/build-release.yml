@@ -1,4 +1,4 @@
-name: Build and release app
+name: Build and release AyuTube
 
 on:
   workflow_dispatch:

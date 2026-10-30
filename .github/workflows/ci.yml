@@ -1,4 +1,4 @@
-name: CI
+name: AyuTube CI
 
 on:
   workflow_dispatch:
@@ -52,10 +52,12 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: app
-          path: app/build/outputs/apk/debug/app-debug-signed.apk
+          path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
 
   release-nightly:
-    if: github.ref_name == 'master'
+    # Set AYUTUBE_ENABLE_NIGHTLY_RELEASE=true only after signing secrets are configured.
+    if: github.ref_name == 'master' && vars.AYUTUBE_ENABLE_NIGHTLY_RELEASE == 'true'
     permissions:
       contents: write
     runs-on: ubuntu-latest
@@ -68,6 +70,9 @@ jobs:
         with:
           name: app
           path: .
+
+      - name: Ensure signed APK exists
+        run: test -f app-debug-signed.apk
 
       - name: Get Date and Time
         run: |
@@ -88,9 +93,9 @@ jobs:
           allowUpdates: true
           updateOnlyUnreleased: true
           artifacts: app-debug-signed.apk
-          name: LibreTube Nightly ${{ env.DATE }}
+          name: AyuTube Nightly ${{ env.DATE }}
           body: |
-            LibreTube Nightly build from ${{ env.DATE }} ${{ env.TIME }}
+            AyuTube Nightly build from ${{ env.DATE }} ${{ env.TIME }}
 
             > [!NOTE]
             > Nightly builds include features/fixes before the official release. Therefore, they are generally less stable than normal releases. Use nightly builds at your own risk.
