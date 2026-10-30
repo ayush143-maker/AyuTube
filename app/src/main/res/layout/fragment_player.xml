@@ -22,7 +22,9 @@
             android:id="@+id/linLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="24dp">
 
             <com.github.libretube.ui.views.DescriptionLayout
                 android:id="@+id/descriptionLayout"

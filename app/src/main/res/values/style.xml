@@ -63,15 +63,15 @@
 
     </style>
 
-    <style name="PlayerActionsButton" parent="@style/Widget.Material3.Button.ElevatedButton">
+    <style name="PlayerActionsButton" parent="@style/Widget.Material3.Button.OutlinedButton">
 
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">4dp</item>
         <item name="android:layout_marginEnd">4dp</item>
         <item name="iconGravity">textStart</item>
-        <item name="android:textColor">?colorPrimary</item>
-        <item name="iconTint">?colorPrimary</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="iconTint">?attr/colorOnSurfaceVariant</item>
 
     </style>
 
