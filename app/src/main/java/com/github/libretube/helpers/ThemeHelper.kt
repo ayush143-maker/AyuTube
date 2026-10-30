@@ -24,7 +24,7 @@ object ThemeHelper {
     fun updateTheme(activity: AppCompatActivity) {
         var accentColor = PreferenceHelper.getString(PreferenceKeys.ACCENT_COLOR, "")
         if (accentColor.isEmpty()) {
-            accentColor = if (DynamicColors.isDynamicColorAvailable()) "my" else "blue"
+            accentColor = "red"
             PreferenceHelper.putString(PreferenceKeys.ACCENT_COLOR, accentColor)
         }
 
@@ -110,7 +110,7 @@ object ThemeHelper {
     fun getStyledAppName(context: Context): Spanned {
         val colorPrimary = getThemeColor(context, androidx.appcompat.R.attr.colorPrimaryDark)
         val hexColor = "#%06X".format(0xFFFFFF and colorPrimary)
-        return "Libre<span  style='color:$hexColor';>Tube</span>"
+        return "Ayu<span  style='color:$hexColor';>Tube</span>"
             .parseAsHtml(HtmlCompat.FROM_HTML_MODE_COMPACT)
     }
 
