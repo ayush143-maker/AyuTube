@@ -18,6 +18,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.0"
             android:requiresFadingEdge="horizontal"
+            app:tabTextColor="?attr/colorOnSurfaceVariant"
+            app:tabSelectedTextColor="?attr/colorPrimary"
+            app:tabIndicatorColor="?attr/colorPrimary"
             app:tabMode="scrollable" />
 
         <com.google.android.material.button.MaterialButton
